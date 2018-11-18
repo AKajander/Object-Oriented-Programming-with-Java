@@ -6,8 +6,6 @@ public class Dictionary {
 		
 		String search;
 		String result;
-		String originalWord;
-		String translation;
 		HashMap<String, String> words = new HashMap<>();
 	
 		words.put("kissa", "cat");
@@ -28,19 +26,10 @@ public class Dictionary {
 			} else {
 				System.out.println("Sanan \"" + search + "\" käännös on \"" + result + "\"");
 			}
-		} while (words.get(search) != "lopeta");
+		} while (search != "");
 		
 		System.out.println("Ohjelma lopetetaan, kiitos käynnistä!");
 		
-		do {
-			System.out.println("Sana alkukielellä?");
-			originalWord = reader.nextLine();
-			System.out.println("Sana käännettynä?");
-			translation = reader.nextLine();
 		
-			words.put(originalWord, translation);
-		} while (originalWord == "lopeta");
-		
-		System.out.println("Ohjelma lopetetaan, kiitos käynnistä!");
 	}
 }
