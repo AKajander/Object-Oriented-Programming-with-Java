@@ -18,17 +18,17 @@ public class Dictionary {
 		
 		Scanner reader = new Scanner(System.in);
 		
-		System.out.println("Minkä sanan käännöksen haluat tietää?");
-		search = reader.nextLine();		
-		result = words.get(search);
-		
 		do {
+			System.out.println("Minkä sanan käännöksen haluat tietää?");
+			search = reader.nextLine();		
+			result = words.get(search);
+			
 			if (words.get(search) == null) {
 				System.out.println("Sanan \"" + search + "\" käännös tuntematon!");
+			} else {
+				System.out.println("Sanan \"" + search + "\" käännös on \"" + result + "\"");
 			}
-			
-			System.out.println("Sanan \"" + search + "\" käännös on \"" + result + "\"");
-		} while (search == "lopeta");
+		} while (words.get(search) != "lopeta");
 		
 		System.out.println("Ohjelma lopetetaan, kiitos käynnistä!");
 		
