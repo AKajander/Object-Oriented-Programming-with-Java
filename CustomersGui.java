@@ -20,50 +20,55 @@ public class CustomersGui extends JFrame {
 	private JTextField contactIdField;
 
 	public CustomersGui() throws ParseException {
+		getContentPane().setFont(new Font("Verdana", Font.PLAIN, 13));
 		setTitle("Customers register");
 		getContentPane().setLayout(null);
 
-		JLabel lblKirjanSytt = new JLabel("Manage customers");
-		lblKirjanSytt.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		lblKirjanSytt.setBounds(34, 27, 195, 20);
-		getContentPane().add(lblKirjanSytt);
-
-		JLabel lblKirjanNimi = new JLabel("Customer's id:");
-		lblKirjanNimi.setBounds(34, 94, 111, 20);
-		getContentPane().add(lblKirjanNimi);
-
-		JLabel lblTekij = new JLabel("Customer's first name:");
-		lblTekij.setBounds(34, 139, 111, 20);
-		getContentPane().add(lblTekij);
-
-		JLabel lblJulkaisuvuosi = new JLabel("Customer's contact person's id:");
-		lblJulkaisuvuosi.setBounds(34, 189, 111, 20);
-		getContentPane().add(lblJulkaisuvuosi);
-
 		customerIdField = new JTextField();
-		customerIdField.setBounds(148, 91, 146, 26);
+		customerIdField.setBounds(228, 93, 146, 26);
 		getContentPane().add(customerIdField);
 		customerIdField.setColumns(10);
 
 		customerFirstNameField = new JTextField();
 		customerFirstNameField.setColumns(10);
-		customerFirstNameField.setBounds(148, 136, 146, 26);
+		customerFirstNameField.setBounds(228, 138, 146, 26);
 
 		getContentPane().add(customerFirstNameField);
 
 		contactIdField = new JTextField();
 		contactIdField.setColumns(10);
-		contactIdField.setBounds(148, 186, 146, 26);
+		contactIdField.setBounds(228, 186, 146, 26);
 		getContentPane().add(contactIdField);
 
 		JButton addButton = new JButton("Add new customer");
+		addButton.setFont(new Font("Verdana", Font.PLAIN, 18));
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				addCustomer();
 			}
 		});
-		addButton.setBounds(34, 244, 115, 29);
+		addButton.setBounds(34, 255, 288, 29);
 		getContentPane().add(addButton);
+		
+		JLabel lblManageCustomers = new JLabel("Manage customers");
+		lblManageCustomers.setFont(new Font("Verdana", Font.BOLD, 25));
+		lblManageCustomers.setBounds(34, 26, 340, 26);
+		getContentPane().add(lblManageCustomers);
+		
+		JLabel lblCustomerId = new JLabel("CustomerId");
+		lblCustomerId.setFont(new Font("Bodoni MT", Font.PLAIN, 18));
+		lblCustomerId.setBounds(34, 96, 111, 16);
+		getContentPane().add(lblCustomerId);
+		
+		JLabel lblCustomerfirstname = new JLabel("CustomerFirstName");
+		lblCustomerfirstname.setFont(new Font("Bodoni MT", Font.PLAIN, 18));
+		lblCustomerfirstname.setBounds(34, 141, 182, 16);
+		getContentPane().add(lblCustomerfirstname);
+		
+		JLabel lblContactpersonid = new JLabel("ContactPersonId");
+		lblContactpersonid.setFont(new Font("Bodoni MT", Font.PLAIN, 18));
+		lblContactpersonid.setBounds(34, 189, 138, 16);
+		getContentPane().add(lblContactpersonid);
 	}
 
 	protected void addCustomer() {
@@ -75,7 +80,7 @@ public class CustomersGui extends JFrame {
 		Customers customer = new Customers(Integer.parseInt(customerId), customerFirstName, Integer.parseInt(contactId));
 
 		CustomersDatabase.addCustomer(customer);
-		JOptionPane.showMessageDialog(this, "Customer is now added.");
+		JOptionPane.showMessageDialog(this, "A new customer is now saved into Customers table.");
 		CustomersDatabase.getCustomer();
 	}
 

@@ -26,7 +26,7 @@ public class CustomersDatabase {
 			dbConnection = DriverManager.getConnection("jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7268655",
 			"sql7268655", "SZ6BcHB1l4");
 
-			String sql = "INSERT INTO Customers (Id, FirstName, ContactPersonId VALUES (1,2,3)";
+			String sql = "INSERT INTO Customers (Id, FirstName, ContactPersonId VALUES (?,?,?)";
 
 			// Create prepared statement for values
 			PreparedStatement preparedStatement = dbConnection.prepareStatement(sql);
