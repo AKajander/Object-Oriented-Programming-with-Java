@@ -47,7 +47,7 @@ public class CustomersGui extends JFrame {
 				addCustomer();
 			}
 		});
-		addButton.setBounds(34, 255, 288, 29);
+		addButton.setBounds(130, 255, 288, 29);
 		getContentPane().add(addButton);
 		
 		JLabel lblManageCustomers = new JLabel("Manage customers");
@@ -69,6 +69,19 @@ public class CustomersGui extends JFrame {
 		lblContactpersonid.setFont(new Font("Bodoni MT", Font.PLAIN, 18));
 		lblContactpersonid.setBounds(34, 189, 138, 16);
 		getContentPane().add(lblContactpersonid);
+		
+		JButton btnViewCustomersTable = new JButton("View Customers table");
+		btnViewCustomersTable.setFont(new Font("Verdana", Font.PLAIN, 18));
+		btnViewCustomersTable.setBounds(130, 323, 288, 29);
+		getContentPane().add(btnViewCustomersTable);
+		
+		JButton viewButton = new JButton("View Customers table");
+		viewButton.setFont(new Font("Verdana", Font.PLAIN, 18));
+		viewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				getCustomer();
+			}
+		});
 	}
 
 	protected void addCustomer() {
@@ -81,7 +94,11 @@ public class CustomersGui extends JFrame {
 
 		CustomersDatabase.addCustomer(customer);
 		JOptionPane.showMessageDialog(this, "A new customer is now saved into Customers table.");
+	}
+	
+	protected void getCustomer() {
 		CustomersDatabase.getCustomer();
+		JOptionPane.showMessageDialog(this, "Customers table should be shown in console.");
 	}
 
 	public static void main(String[] args) {
